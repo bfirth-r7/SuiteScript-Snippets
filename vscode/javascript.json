@@ -1,0 +1,95 @@
+{
+	".source.js": {
+	  "NetSuite Sublist For Loop": {
+		"prefix": "for(var line = 1; line <= lineItemCount; line++)",
+		"description": "The for statement creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement (usually a block statement) to be executed in the loop.",
+		"rightLabelHTML": "<span style=\"color:#EF490F\">Rapid7 - Netsuite</span>",
+		"descriptionMoreURL": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for",
+		"body": "for(var line = 1; line <= lineItemCount; line++) {$1}"
+	  },
+	  "NetSuite Search": {
+		"prefix": "search",
+		"description": "Load the search module to create and run on demand or saved searches and analyze and iterate through the search results. You can search for a single record by keywords, create saved searches, search for duplicate records, or return a set of records that match filters you define.",
+		"rightLabelHTML": "<span style=\"color:#EF490F\">Rapid7 - Netsuite</span>",
+		"descriptionMoreURL": "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4345764122.html",
+		"body": "const $1 = search.create({\n  type: $2,\n   filters: [{\n     name: '$3',\n     operator: '$4'\n   }],\n   columns: [$5]\n  });\n\n $1.run().each(($6) => {\n   $7\n   return true;\n });"
+	  },
+	  "NetSuite Define": {
+		"prefix": "define",
+		"description": "The define Function is a global object that implements a define() Module Loader interface for SuiteScript 2.0. It conforms to the Asynchronous Module Definition (AMD) specification.",
+		"rightLabelHTML": "<span style=\"color:#EF490F\">Rapid7 - Netsuite</span>",
+		"descriptionMoreURL": "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4387811519.html",
+		"body": "/**\n * @NApiVersion 2.x\n * @NModuleScope SameAccount\n * @NAMDConfig \n * Rapid 7\n * @module ${RELATIVE_FILEPATH/^.+\\\\(.*)$/$1/}\n * @description $2\n */\ndefine([$3], ($4) => {\n\n  return /** @alias module:$1 */ {\n    $5\n  };\n});"
+	  },
+	  "NetSuite Restlet": {
+		"prefix": "restlet",
+		"description": "A RESTlet is a SuiteScript that you make available for other applications to call, either from an external application or from within NetSuite. When an application or another script calls a RESTlet, the RESTlet script executes and, in some cases, returns a value to the calling application.",
+		"rightLabelHTML": "<span style=\"color:#EF490F\">Rapid7 - Netsuite</span>",
+		"descriptionMoreURL": "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4387799403.html",
+		"body": "/**\n * @NApiVersion 2.x\n * @NModuleScope SameAccount\n * @NScriptType restlet\n * @NAMDConfig \n * Rapid 7\n * @module ${RELATIVE_FILEPATH/^.+\\\\(.*)$/$1/}\n * @description $2\n */\n define([$3], ($4) => {\n\n  /**\n   * @function get\n   * @description description\n   *\n   * @public\n   * @param  {type} - description\n   * @return {type} - description\n   */\n  function get($5) {\n\n  }\n\n  /**\n   * @function delete\n   * @description description\n   *\n   * @public\n   * @param  {type} - description\n   * @return {type} - description\n   */\n  function delete($6) {\n\n  }\n\n  /**\n   * @function put\n   * @description description\n   *\n   * @public\n   * @param  {type} - description\n   * @return {type} - description\n   */\n  function put($7) {\n\n  }\n\n  /**\n   * @function post\n   * @description description\n   *\n   * @public\n   * @param  {type} - description\n   * @return {type} - description\n   */\n  function post($8) {\n\n  }\n\n   return /** @alias module:$1 */ {\n     get,\n     delete,\n     put,\n     post\n   };\n });"
+	  },
+	  "NetSuite User Event": {
+		"prefix": "userEvent",
+		"description": "User event scripts are executed on the NetSuite server. They are executed when users perform certain actions on records, such as create, load, update, copy, delete, or submit. Most standard NetSuite records and custom record types support user event scripts.",
+		"rightLabelHTML": "<span style=\"color:#EF490F\">Rapid7 - Netsuite</span>",
+		"descriptionMoreURL": "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4387799721.html",
+		"body": "/**\n * @NApiVersion 2.x\n * @NModuleScope SameAccount\n * @NScriptType UserEventScript\n * @NAMDConfig \n * @NModuleScope SameAccount\n * Rapid 7\n * @module ${RELATIVE_FILEPATH/^.+\\\\(.*)$/$1/}\n * @description $2\n */\ndefine([$3], ($4) => {\n\n  /**\n   * @function afterSubmit\n   * @description description\n   *\n   * @public\n   * @param  {type} scriptContext description\n   * @return {type} - description\n   */\n  function afterSubmit(scriptContext) {\n\n  }\n\n   /**\n    * @function beforeLoad\n    * @description description\n    *\n    * @public\n    * @param  {type} scriptContext description\n    * @return {type} - description\n    */\n   function beforeLoad(scriptContext) {\n\n   }\n\n   /**\n    * @function beforeSubmit\n    * @description description\n    *\n    * @public\n    * @param  {type} scriptContext description\n    * @return {type} - description\n    */\n   function beforeSubmit(scriptContext) {\n\n   }\n\n  return /** @alias module:$1 */ {\n    afterSubmit,\n    beforeLoad,\n    beforeSubmit\n  };\n});"
+	  },
+	  "NetSuite Bundle Installation Script": {
+		"prefix": "bundleInstallationScript",
+		"description": "Bundle installation scripts are specialized server scripts that perform processes in target accounts as part of a bundle installation, update, or uninstall. These processes include setup, configuration, and data management tasks that would otherwise have to be completed by account administrators. Every bundle can include a bundle installation script that is automatically run when the bundle is installed, upgraded, or uninstalled. Each bundle installation script can contain triggers to be executed before install, after install, before update, after update, and after uninstall.",
+		"rightLabelHTML": "<span style=\"color:#EF490F\">Rapid7 - Netsuite</span>",
+		"descriptionMoreURL": "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4460460309.html",
+		"body": "/**\n * @NApiVersion 2.x\n * @NModuleScope SameAccount\n * @NAMDConfig \n * @NScriptType BundleInstallationScript\n * Rapid 7\n * @module ${RELATIVE_FILEPATH/^.+\\\\(.*)$/$1/}\n * @description $2\n */\ndefine([$3], ($4) => {\n\n   /**\n    * @function afterInstall\n    * @description description\n    *\n    * @public\n    * @param  {type} toversion description\n    * @return {type} - description\n    */\n   function afterInstall(toversion) {\n\n   }\n\n   /**\n    * @function afterUpdate\n    * @description description\n    *\n    * @public\n    * @param  {type} fromversion description\n    * @param  {type} toversion description\n    * @return {type} - description\n    */\n   function afterUpdate(fromversion, toversion) {\n\n   }\n\n   /**\n    * @function beforeInstall\n    * @description description\n    *\n    * @public\n    * @param  {type} toversion description\n    * @return {type} - description\n    */\n   function beforeInstall(toversion) {\n\n   }\n\n   /**\n    * @function beforeUninstall\n    * @description description\n    *\n    * @public\n    * @param  {type} toversion description\n    * @return {type} - description\n    */\n   function beforeUninstall(toversion) {\n\n   }\n\n   /**\n    * @function beforeUpdate\n    * @description description\n    *\n    * @public\n    * @param  {type} fromversion description\n    * @param  {type} toversion description\n    * @return {type} - description\n    */\n   function beforeUpdate(fromversion, toversion) {\n\n   }\n\n  return /** @alias module:$1 */ {\n    afterInstall,\n    afterUpdate,\n    beforeInstall,\n    beforeUninstall,\n    beforeUpdate\n  };\n});"
+	  },
+	  "NetSuite Suitelet": {
+		"prefix": "suitelet",
+		"description": "Suitelets are extensions of the SuiteScript API that allow you to build custom NetSuite pages and backend logic. Suitelets are server-side scripts that operate in a request-response model, and are invoked by HTTP GET or POST requests to system generated URLs.",
+		"rightLabelHTML": "<span style=\"color:#EF490F\">Rapid7 - Netsuite</span>",
+		"descriptionMoreURL": "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4387799600.html",
+		"body": "/**\n * @NApiVersion 2.x\n * @NModuleScope SameAccount\n * @NAMDConfig \n * @NScriptType Suitelet\n * Rapid 7\n * @module ${RELATIVE_FILEPATH/^.+\\\\(.*)$/$1/}\n * @description $2\n */\ndefine([$3], ($4) => {\n\n /**\n  * @function onRequest\n  * @description description\n  *\n  * @public\n  * @param  {Object} params description\n  */\n  function onRequest(params) {\n\n  }\n\n  return /** @alias module:$1 */ {\n    onRequest\n  };\n});"
+	  },
+	  "NetSuite Scheduled Script": {
+		"prefix": "scheduledScript",
+		"description": "Scheduled scripts are server-side scripts that are executed (processed) with SuiteCloud Processors. You can deploy scheduled scripts so they are submitted for processing at a future time, or at future times on a recurring basis. You can also submit scheduled scripts on demand from the deployment record or from another script with the task.ScheduledScriptTask API.",
+		"rightLabelHTML": "<span style=\"color:#EF490F\">Rapid7 - Netsuite</span>",
+		"descriptionMoreURL": "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4387799491.html",
+		"body": "/**\n * @NApiVersion 2.x\n * @NModuleScope SameAccount\n * @NAMDConfig \n * @NScriptType ScheduledScript\n * Rapid 7\n * @module ${RELATIVE_FILEPATH/^.+\\\\(.*)$/$1/}\n * @description $2\n */\ndefine([$3], ($4) => {\n\n /**\n  * @function execute\n  * @description description\n  *\n  * @public\n  * @param  {Object} context description\n  */\n  function execute(context) {\n\n  }\n\n  return /** @alias module:$1 */ {\n    execute\n  };\n});"
+	  },
+	  "NetSuite Workflow Action Script": {
+		"prefix": "workflowAction",
+		"description": "Workflow action scripts allow you to create custom Workflow Actions that are defined on a record in a workflow. Workflow action scripts are useful for performing actions on sublists because sublist fields are not currently available through the Workflow Manager. Workflow action scripts are also useful when you need to create custom actions that execute complex computational logic that is beyond what can be implemented with the built-in actions.",
+		"rightLabelHTML": "<span style=\"color:#EF490F\">Rapid7 - Netsuite</span>",
+		"descriptionMoreURL": "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4460429314.html",
+		"body": "/**\n * @NApiVersion 2.x\n * @NModuleScope SameAccount\n * @NAMDConfig \n * @NScriptType WorkflowActionScript\n * Rapid 7\n * @module ${RELATIVE_FILEPATH/^.+\\\\(.*)$/$1/}\n * @description $2\n */\ndefine([$3], ($4) => {\n\n /**\n  * @function onAction\n  * @description description\n  *\n  * @public\n  * @param  {Object} scriptContext description\n  */\n  function onAction(scriptContext) {\n\n  }\n\n  return /** @alias module:$1 */ {\n    onAction\n  };\n});"
+	  },
+	  "NetSuite Portlet": {
+		"prefix": "portlet",
+		"description": "Portlet scripts are run on the server and are rendered in the NetSuite dashboard.",
+		"rightLabelHTML": "<span style=\"color:#EF490F\">Rapid7 - Netsuite</span>",
+		"descriptionMoreURL": "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4387799288.html",
+		"body": "/**\n * @NApiVersion 2.x\n * @NModuleScope SameAccount\n * @NAMDConfig \n * @NScriptType Portlet\n * Rapid 7\n * @module ${RELATIVE_FILEPATH/^.+\\\\(.*)$/$1/}\n * @description $2\n */\ndefine([$3], ($4) => {\n\n /**\n  * @function render\n  * @description description\n  *\n  * @public\n  * @param  {Object} params description\n  */\n  function render(params) {\n\n  }\n\n  return /** @alias module:$1 */ {\n    render\n  };\n});"
+	  },
+	  "NetSuite Mass Update": {
+		"prefix": "massUpdateScript",
+		"description": "Mass update scripts allow you to programmatically perform custom updates to fields that are not available through general mass updates. Mass update scripts can run complex calculations, as defined in your script, across records.",
+		"rightLabelHTML": "<span style=\"color:#EF490F\">Rapid7 - Netsuite</span>",
+		"descriptionMoreURL": "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4460452911.html",
+		"body": "/**\n * @NApiVersion 2.x\n * @NModuleScope SameAccount\n * @NAMDConfig \n * @NScriptType MassUpdateScript\n * Rapid 7\n * @module ${RELATIVE_FILEPATH/^.+\\\\(.*)$/$1/}\n * @description $2\n */\ndefine([$3], ($4) => {\n\n /**\n  * @function each\n  * @description description\n  *\n  * @public\n  * @param  {Object} params description\n  */\n  function each(params) {\n\n  }\n\n  return /** @alias module:$1 */ {\n    each\n  };\n});"
+	  },
+	  "NetSuite Map Reduce": {
+		"prefix": "mapReduce",
+		"description": "The map/reduce script type is designed for scripts that need to handle large amounts of data. It is best suited for situations where the data can be divided into small, independent parts. When the script is executed, a structured framework automatically creates enough jobs to process all of these parts. Map/reduce is ideal for scenarios where you want to apply the same logic repeatedly — once for each object in a series.",
+		"rightLabelHTML": "<span style=\"color:#EF490F\">Rapid7 - Netsuite</span>",
+		"descriptionMoreURL": "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4387799161.html",
+		"body": "/**\n * @NApiVersion 2.x\n * @NModuleScope SameAccount\n * @NAMDConfig \n * @NScriptType MapReduceScript\n * Rapid 7\n * @module ${RELATIVE_FILEPATH/^.+\\\\(.*)$/$1/}\n * @description $2\n */\ndefine([$3], ($4) => {\n\n /**\n  * @function getInputData\n  * @description description\n  *\n  * @public\n  * @return {type} Description\n  * @param  {Object} inputContext description\n  */\n  function getInputData(inputContext) {\n\n  }\n\n /**\n  * @function map\n  * @description description\n  *\n  * @public\n  * @param  {Object} mapContext description\n  */\n  function map(mapContext) {\n    for (var i = 0; mapContext.value && i < mapContext.value.length; i++)\n      if ($6) {\n          mapContext.write({\n               key: $7,\n               value: $8\n          });\n      }\n  }\n\n /**\n  * @function reduce\n  * @description description\n  *\n  * @public\n  * @param  {Object} reduceContext description\n  */\n  function reduce(reduceContext) {\n    reduceContext.write({\n        key: $9,\n        value: $10\n    });\n  }\n\n /**\n  * @function summarize\n  * @description description\n  *\n  * @public\n  * @param  {Object} summaryContext description\n  */\n  function summarize(summaryContext) {\n\n  }\n\n  return /** @alias module:$1 */ {\n    getInputData,\n    map,\n    reduce,\n    summarize\n  };\n});"
+	  },
+	  "NetSuite Client Script": {
+		"prefix": "clientScript",
+		"description": "Client scripts are scripts that are executed by predefined event triggers in a browser. They can validate user-entered data and auto-populate fields or sublists at various form events.",
+		"rightLabelHTML": "<span style=\"color:#EF490F\">Rapid7 - Netsuite</span>",
+		"descriptionMoreURL": "https://system.netsuite.com/app/help/helpcenter.nl?fid=section_4387798404.html",
+		"body": "/**\n * @NApiVersion 2.x\n * @NModuleScope SameAccount\n * @NAMDConfig \n * @NScriptType ClientScript\n * Rapid 7\n * @module ${RELATIVE_FILEPATH/^.+\\\\(.*)$/$1/}\n * @description $2\n */\ndefine([$3], ($4) => {\n\n /**\n  * @function pageInit\n  * @description description\n  *\n  * @public\n  * @param  {Object} context description\n  */\n  function pageInit(context) {\n\n }\n\n /**\n  * @function saveRecord\n  * @description description\n  *\n  * @public\n  * @param  {Object} context description\n  * @return {Boolean} description\n  */\n function saveRecord(context) {\n\n }\n\n /**\n  * @function validateField\n  * @description description\n  *\n  * @public\n  * @param  {Object} context description\n  * @return {Boolean} description\n  */\n function validateField(context) {\n\n }\n\n /**\n  * @function fieldChanged\n  * @description description\n  *\n  * @public\n  * @param  {Object} context description\n  */\n function fieldChanged(context) {\n\n }\n\n /**\n  * @function postSourcing\n  * @description description\n  *\n  * @public\n  * @param  {Object} context description\n  * @return {Boolean} description\n  */\n function postSourcing(context) {\n\n }\n\n /**\n  * @function lineInit\n  * @description description\n  *\n  * @public\n  * @param  {Object} context description\n  */\n function lineInit(context) {\n\n }\n\n /**\n  * @function validateDelete\n  * @description description\n  *\n  * @public\n  * @param  {Object} context description\n  * @return {Boolean} description\n  */\n function validateDelete(context) {\n\n }\n\n /**\n  * @function validateInsert\n  * @description description\n  *\n  * @public\n  * @param  {Object} context description\n  */\n function validateInsert(context) {\n\n }\n\n /**\n  * @function validateLine\n  * @description description\n  *\n  * @public\n  * @param  {Object} context description\n  * @return {Boolean} description\n  */\n function validateLine(context) {\n\n }\n\n /**\n  * @function sublistChanged\n  * @description description\n  *\n  * @public\n  * @param  {Object} context description\n  */\n function sublistChanged(context) {\n\n }\n\n  return /** @alias module:$1 */ {\n    pageInit,\n    fieldChanged,\n    postSourcing,\n    sublistChanged,\n    lineInit,\n    validateField,\n    validateLine,\n    validateInsert,\n    validateDelete,\n    saveRecord\n  };\n});"
+	  }
+	}
+  }
